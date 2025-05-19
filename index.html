@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pravendra Anuragi | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+  <header>
+    <h1>Pravendra Anuragi</h1>
+    <nav>
+      <ul>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>I am a frontend developer with a strong interest in creating responsive and dynamic web applications using HTML, CSS, JavaScript, and React. I'm continuously learning and building real-world projects to strengthen my skills in modern web development.</p>
+
+    <h3>Education</h3>
+    <p><strong>Bachelor of Technology in Electronics and Instrumentation Engineering</strong><br>
+    National Institute of Technology, Rourkela<br>
+    November 2022 – Present</p>
+
+    <h3>Skills</h3>
+    <div class="skills-container">
+      <div class="skill">
+        <label>Python</label>
+        <div class="skill-bar">
+          <div class="skill-progress python"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <label>JavaScript</label>
+        <div class="skill-bar">
+          <div class="skill-progress javascript"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <label>React</label>
+        <div class="skill-bar">
+          <div class="skill-progress react"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <label>HTML & CSS</label>
+        <div class="skill-bar">
+          <div class="skill-progress htmlcss"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    <div class="project fade-in">
+      <h3>To-Do App</h3>
+      <p>A simple and clean to-do list app to manage daily tasks efficiently.</p>
+    </div>
+    <div class="project fade-in">
+      <h3>Weather App</h3>
+      <p>Fetches and displays real-time weather information using OpenWeather API.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:pravendraanuragi34@gmail.com">pravendraanuragi34@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/pravendra-anuragi-6a05b425b" target="_blank">linkedin.com/in/pravendra-anuragi</a></p>
+    <p>GitHub: <a href="https://github.com/Pravendraanuragi" target="_blank">github.com/Pravendraanuragi</a></p>
+  </section>
+
+  <footer>
+    <button id="backToTop" title="Back to top">&#8679;</button>
+    <p>&copy; 2025 Pravendra Anuragi. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Dark mode toggle
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    // Smooth scroll
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(link.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Back to top button
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.style.display = 'block';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Fade-in on scroll animation
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = {
+      threshold: 0.3,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('appear');
+        appearOnScroll.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+</body>
+</html>
