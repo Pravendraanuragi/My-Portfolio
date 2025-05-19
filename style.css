@@ -1,0 +1,186 @@
+/* Base and reset */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+body {
+  background: linear-gradient(135deg, #fff5f2, #ffe8d6);
+  color: #3a3a3a;
+  line-height: 1.6;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+body.dark-mode {
+  background: linear-gradient(135deg, #1f1f28, #3a3a40);
+  color: #d7d7db;
+}
+
+/* Header */
+header {
+  background: #ff6f61; /* coral */
+  color: #fff;
+  padding: 24px 0;
+  text-align: center;
+  box-shadow: 0 3px 12px rgba(255, 111, 97, 0.6);
+  letter-spacing: 1.2px;
+}
+
+/* Navigation */
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+nav ul li {
+  margin: 0 20px;
+}
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.15rem;
+  transition: color 0.3s ease;
+  letter-spacing: 0.8px;
+}
+nav ul li a:hover {
+  color: #ffd6cc;
+  text-shadow: 0 0 6px #ffd6cc;
+}
+
+/* Sections */
+section {
+  padding: 48px 20px;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+/* Skills Bars */
+.skills-container {
+  margin-top: 15px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.skill {
+  margin: 15px 0;
+}
+
+.skill label {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 6px;
+  color: inherit;
+}
+
+.skill-bar {
+  background-color: #ffdcd0;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 18px;
+}
+
+.skill-progress {
+  height: 100%;
+  border-radius: 12px;
+  width: 0;
+  animation: fillBar 2s forwards;
+}
+
+/* Skill bar colors and widths */
+.skill-progress.python { background-color: #ff715b; width: 85%; }
+.skill-progress.javascript { background-color: #ff9f45; width: 75%; }
+.skill-progress.react { background-color: #42b883; width: 70%; }
+.skill-progress.htmlcss { background-color: #ff6f61; width: 90%; }
+
+@keyframes fillBar {
+  to { width: var(--width); }
+}
+
+/* Projects */
+.projects .project {
+  margin: 25px 0;
+  padding: 30px;
+  border-radius: 20px;
+  background-color: #fff0ec;
+  box-shadow: 0 8px 22px rgba(255, 111, 97, 0.3);
+  transition: transform 0.35s ease, background-color 0.35s, box-shadow 0.35s;
+  cursor: pointer;
+  color: #3a3a3a;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.projects .project.appear {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.projects .project:hover {
+  transform: translateY(-10px);
+  background-color: #ffe2da;
+  box-shadow: 0 15px 30px rgba(255, 111, 97, 0.55);
+}
+
+body.dark-mode .projects .project {
+  background-color: #3a3a40;
+  box-shadow: 0 8px 22px rgba(255, 159, 69, 0.35);
+  color: #e0e0e0;
+}
+
+body.dark-mode .projects .project:hover {
+  background-color: #ff9f45;
+  color: #1f1f28;
+}
+
+/* Footer */
+footer {
+  background: #ff6f61;
+  color: #fff;
+  text-align: center;
+  padding: 18px 0;
+  position: relative;
+  letter-spacing: 0.7px;
+}
+
+/* Back to top button */
+#backToTop {
+  position: fixed;
+  bottom: 35px;
+  right: 25px;
+  background-color: #ff715b;
+  color: #fff;
+  border: none;
+  padding: 12px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  box-shadow: 0 4px 12px rgba(255, 113, 91, 0.6);
+  display: none;
+  transition: background-color 0.3s ease;
+}
+#backToTop:hover {
+  background-color: #ff9f45;
+}
+
+/* Links */
+a {
+  color: #ff6f61;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+a:hover {
+  color: #ff9f45;
+  text-shadow: 0 0 4px #ff9f45;
+}
